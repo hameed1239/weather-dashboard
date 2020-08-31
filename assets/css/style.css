@@ -46,7 +46,6 @@ input{
     padding-left: 15px;
 }
 .col-sm-2{
-    /* display: flex; */
     margin-right: 10px ;
     background-color: blue;
     min-height: 300px;
@@ -61,7 +60,6 @@ input{
 }
 .col-sm-2 img{
     max-width: 100%;
-    /* max-height: 100px; */
 }
 .current-day-heading-container{
     display: flex;

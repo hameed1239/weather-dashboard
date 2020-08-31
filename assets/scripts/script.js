@@ -73,15 +73,12 @@ function displaySearchHistory() {
     }
     
     var cities = JSON.parse(localStorage.getItem("cities"));
-    // console.log(cities);
      if (cities !== null) {
         for (var i= cities.length-1; i>=0; i--) {
             var listItem = document.createElement("li")
             listItem.addEventListener("click", function () {
-                // console.log(event.target.innerHTML);
                 historySearch(event.target.innerHTML)
             });
-            // console.log(cities[i]);
             listItem.innerHTML = cities[i];
             searchList.appendChild(listItem);
         
@@ -96,7 +93,6 @@ function searchQuery() {
             return response.json();
         })
         .then(function (response) {
-            // console.log(response);
             currentDayWeather(response);
             var lat = response.coord.lat;
             var lon = response.coord.lon;
@@ -104,7 +100,6 @@ function searchQuery() {
                 .then(function (response) {
                     return response.json();
                 }).then(function (response) {
-                    // console.log(response);
                     addUVIndex(response);
             })
         });
@@ -113,13 +108,11 @@ function searchQuery() {
             return response.json();
         })
         .then(function (response) {
-            console.log(response);
             displayForcast(response);
         });
 }
 function displayForcast(response) {
     var forcastList = response.list;
-    // console.log (forcastList);
     var responseDate1 = date1.format("YYYY-MM-DD");
     var responseDate2 = date2.format("YYYY-MM-DD");
     var responseDate3 = date3.format("YYYY-MM-DD");
@@ -132,7 +125,6 @@ function displayForcast(response) {
     day5.querySelector(".date").innerHTML = date5.format("M/D/YYYY");
     for (var i = 1; i < (forcastList.length) - 7; i += 8){
         var responseDate = forcastList[i].dt_txt.slice(0, 10);
-        // console.log (responseDate);
         if (responseDate === responseDate1) {
             day1.querySelector(".icon").setAttribute("src", `https://openweathermap.org/img/wn/${forcastList[i].weather[0].icon}@2x.png`);
             day1.querySelector(".temp").innerHTML = `Temperature: ${forcastList[i].main.temp} &#8457`;
@@ -161,10 +153,7 @@ function displayForcast(response) {
     
 }
 function typeSearch() {
-    debugger;
-    // console.log(city.value);
     cityValue = toSentenceCase(city.value);
-    // console.log(cityValue);
     
     storeCity();
     searchQuery();
@@ -173,7 +162,6 @@ function typeSearch() {
 function historySearch(clickedCity) {
     cityValue = clickedCity;
     city.innerHTML = cityValue;
-    // console.log(cityValue);
     searchQuery();
 }
 function toSentenceCase(str) {
@@ -206,11 +194,9 @@ function onLoad() {
         var temp = [];
         temp = (JSON.parse(localStorage.getItem("cities")));
         cityValue = temp[temp.length - 1];
-        console.log(cityValue);
         }
     else {
         cityValue = "London";
-        console.log(cityValue);
         }
     searchQuery();
     displaySearchHistory();
