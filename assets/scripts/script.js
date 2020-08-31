@@ -2,6 +2,11 @@ var search = document.querySelector("#search-icon").addEventListener("click", ty
 var city = document.querySelector("#city");
 var cityValue = "London";
 var currentDay = document.querySelector("#current-day-heading");
+var day1 = document.querySelector("#day1");
+var day2 = document.querySelector("#day2");
+var day3 = document.querySelector("#day3");
+var day4 = document.querySelector("#day4");
+var day5 = document.querySelector("#day5");
 var currentIcon = document.querySelector("#current-icon");
 var currentTemp = document.querySelector("#current-temp");
 var currentHumidity = document.querySelector("#current-humidity");
@@ -27,12 +32,12 @@ function storeCity() {
                 temp = move(temp, oldIndex, newIndex);
             }
             localStorage.setItem("cities", JSON.stringify(temp));
-        }
+        }//if localStorage is not empty
         else {
             var temp = [];
             temp.push(cityValue);
             localStorage.setItem("cities", JSON.stringify(temp));
-        }
+        }//localStorage is empty
 
     }
     else {//notify user
@@ -106,9 +111,17 @@ function searchQuery() {
         })
         .then(function (response) {
             console.log(response);
+            displayForcast(response);
         });
     // storeCity();
     // displaySearchHistory();
+}
+function displayForcast(response) {
+    var forcastList = response.list;
+    // console.log (forcastList);
+    for (var i = 0; i < forcastList.length; i++){
+
+    }
 }
 function typeSearch() {
     debugger;
@@ -140,7 +153,7 @@ function currentDayWeather(response) {
     var formatedDate = currentDate.format("M/D/YYYY");
     currentDay.innerHTML = `${cityValue} ${formatedDate}`;
     // var icon = response.weather[0].icon;
-    var iconSrc = `http://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`;
+    var iconSrc = `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`;
     currentIcon.setAttribute("src", iconSrc);
     currentTemp.innerHTML = `${response.main.temp} &#8457`;
     currentHumidity.innerHTML = `${response.main.humidity}%`;
@@ -151,8 +164,22 @@ function currentDayWeather(response) {
 function addUVIndex(response) {
     currentUVIndex.innerHTML = `${response.value}`;
 }
-searchQuery();
-displaySearchHistory();
+
+function onLoad() {
+    if (localStorage.getItem("cities") !== null) {
+        var temp = [];
+        temp = (JSON.parse(localStorage.getItem("cities")));
+        cityValue = temp[temp.length - 1];
+        console.log(cityValue);
+        }
+    else {
+        cityValue = "London";
+        console.log(cityValue);
+        }
+    searchQuery();
+    displaySearchHistory();
+}
+onLoad();
 // fetch('https://api.openweathermap.org/data/2.5/forecast?q=cleveland,ohio&appid=7b0197c226ae249e6f7f72a52e0e15b5')
 //     .then(function (response) {
 //         return response.json();
