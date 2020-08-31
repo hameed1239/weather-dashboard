@@ -92,7 +92,7 @@ function searchQuery() {
             currentDayWeather(response);
             var lat = response.coord.lat;
             var lon = response.coord.lon;
-            fetch(`http://api.openweathermap.org/data/2.5/uvi?appid=${APIKEY}&lat=${lat}&lon=${lon}`)
+            fetch(`https://api.openweathermap.org/data/2.5/uvi?appid=${APIKEY}&lat=${lat}&lon=${lon}`)
                 .then(function (response) {
                     return response.json();
                 }).then(function (response) {
