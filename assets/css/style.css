@@ -2,6 +2,7 @@
     background-color: rgb(71, 70, 70);
     text-align: center;
     padding: 20px 0px;
+    color: white;
 }
 
 .container{
@@ -9,6 +10,7 @@
     margin-right: 10px;
 }
 #search-icon{
+    margin-top: 10px;
     margin-left: 2px;
     border: 1px solid black;
     border-radius: 5px;
@@ -20,14 +22,20 @@
 }
 #search-icon img:hover{
     width: 45px;
+    transition: all .3s ease-in-out;
 }
 input{
-    width: inherit;
+    width:inherit; 
+}
+.search-list{
+    margin-top: 20px;
+    padding: 0px;
 }
 .search-list li{
     border: 1px solid rgb(214, 206, 206);
     margin: 0px;
     padding: 10px;
+    list-style: none;
 }
 .current-day{
     border:1px solid lightgray;
@@ -42,4 +50,22 @@ input{
     background-color: blue;
     max-height: 150px;
     border-radius: 5px;
+}
+.current-day-heading-container{
+    display: flex;
+    flex-direction: row;
+    border: none;
+    margin-bottom: 20px;
+}
+#current-day-heading{
+    margin: 0px;
+    align-self: flex-end;
+}
+#current-icon{
+   max-width: 40px;
+    align-self: flex-end;
+}
+#current-uv-index{
+    background-color: red;
+    padding: 5px;
 }
