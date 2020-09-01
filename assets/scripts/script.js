@@ -154,10 +154,12 @@ function displayForcast(response) {
 }
 function typeSearch() {
     cityValue = toSentenceCase(city.value);
-    
-    storeCity();
-    searchQuery();
-    displaySearchHistory();
+    console.log(cityValue);
+    if (cityValue) {
+        storeCity();
+        searchQuery();
+        displaySearchHistory();
+    }    
 }
 function historySearch(clickedCity) {
     cityValue = clickedCity;
