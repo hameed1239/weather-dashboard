@@ -5,10 +5,7 @@
     color: white;
 }
 
-.container{
-    margin-left: 10px;
-    margin-right: 10px;
-}
+
 #search-icon{
     margin-top: 10px;
     margin-left: 2px;
@@ -45,20 +42,22 @@ input{
 .sub-row{
     padding-left: 15px;
 }
-.col-sm-2{
+.forecast{
     margin-right: 10px ;
     background-color: blue;
     min-height: 300px;
     border-radius: 5px;
     color: white;
+    padding: 5px;
+    text-align: left;
 }
-.col-sm-2 h2{
+.forecast h2{
     text-align: center;
     margin-top: 15px;
     font-size: 100%;
     color: white;
 }
-.col-sm-2 img{
+.forecast img{
     max-width: 100%;
 }
 .current-day-heading-container{
