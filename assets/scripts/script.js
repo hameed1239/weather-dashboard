@@ -123,33 +123,36 @@ function displayForcast(response) {
     day3.querySelector(".date").innerHTML = date3.format("M/D/YYYY");
     day4.querySelector(".date").innerHTML = date4.format("M/D/YYYY");
     day5.querySelector(".date").innerHTML = date5.format("M/D/YYYY");
-    for (var i = 1; i < (forcastList.length) - 7; i += 8){
+    for (var i = 1; i < (forcastList.length); i++){
         var responseDate = forcastList[i].dt_txt.slice(0, 10);
         if (responseDate === responseDate1) {
             day1.querySelector(".icon").setAttribute("src", `https://openweathermap.org/img/wn/${forcastList[i].weather[0].icon}@2x.png`);
             day1.querySelector(".temp").innerHTML = `Temperature: ${forcastList[i].main.temp} &#8457`;
             day1.querySelector(".humidity").innerHTML = `Humidity: ${forcastList[i].main.humidity}%`;
         }
-        if (responseDate === responseDate2) {
+        else if (responseDate === responseDate2) {
             day2.querySelector(".icon").setAttribute("src", `https://openweathermap.org/img/wn/${forcastList[i].weather[0].icon}@2x.png`);
             day2.querySelector(".temp").innerHTML = `Temperature: ${forcastList[i].main.temp} &#8457`;
             day2.querySelector(".humidity").innerHTML = `Humidity: ${forcastList[i].main.humidity}%`;
         }
-        if (responseDate === responseDate3) {
+        else if (responseDate === responseDate3) {
             day3.querySelector(".icon").setAttribute("src", `https://openweathermap.org/img/wn/${forcastList[i].weather[0].icon}@2x.png`);
             day3.querySelector(".temp").innerHTML = `Temperature: ${forcastList[i].main.temp} &#8457`;
             day3.querySelector(".humidity").innerHTML = `Humidity: ${forcastList[i].main.humidity}%`;
         }
-        if (responseDate === responseDate4) {
+        else if (responseDate === responseDate4) {
             day4.querySelector(".icon").setAttribute("src", `https://openweathermap.org/img/wn/${forcastList[i].weather[0].icon}@2x.png`);
             day4.querySelector(".temp").innerHTML = `Temperature: ${forcastList[i].main.temp} &#8457`;
             day4.querySelector(".humidity").innerHTML = `Humidity: ${forcastList[i].main.humidity}%`;
         }
+        else if (responseDate === responseDate5) {
+            day5.querySelector(".icon").setAttribute("src", `https://openweathermap.org/img/wn/${forcastList[i].weather[0].icon}@2x.png`);
+        day5.querySelector(".temp").innerHTML = `Temperature: ${forcastList[i].main.temp} &#8457`;
+        day5.querySelector(".humidity").innerHTML = `Humidity: ${forcastList[i].main.humidity}%`;
+        }
         
     }
-        day5.querySelector(".icon").setAttribute("src", `https://openweathermap.org/img/wn/${forcastList[38].weather[0].icon}@2x.png`);
-        day5.querySelector(".temp").innerHTML = `Temperature: ${forcastList[38].main.temp} &#8457`;
-        day5.querySelector(".humidity").innerHTML = `Humidity: ${forcastList[38].main.humidity}%`;
+        
     
 }
 function typeSearch() {
