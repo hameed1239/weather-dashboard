@@ -155,7 +155,7 @@ function displayForcast(response) {
 function typeSearch() {
     cityValue = toSentenceCase(city.value);
     console.log(cityValue);
-    if (cityValue) {
+    if (cityValue&&cityValue) {
         storeCity();
         searchQuery();
         displaySearchHistory();
