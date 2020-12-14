@@ -16,7 +16,7 @@ https://hameed1239.github.io/weather-dashboard/
 
 
 ![Website Screenshot](./assets/images/Capture.PNG)
-Format: ![Alt Text] (url)
+
 ## Contribution
 Made by Hameed Kazeem
 
